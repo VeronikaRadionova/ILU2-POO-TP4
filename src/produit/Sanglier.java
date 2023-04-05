@@ -7,8 +7,8 @@ public class Sanglier extends Produit {
 	private Gaulois chasseur;
 
 	
-	public Sanglier(String nom, Unite unite, int poids, Gaulois chasseur) {
-		super("sanglier", unite.KILOGRAMME);
+	public Sanglier(/*Unite unite,*/ int poids, Gaulois chasseur) {
+		super("sanglier", Unite.KILOGRAMME);
 		this.poids = poids;
 		this.chasseur = chasseur;
 	}

@@ -1,10 +1,10 @@
 package produit;
 
 public class Poisson extends Produit{
-	private int date;
+	private String date;
 
-	public Poisson(String nom, Unite unite, int date) {
-		super("poisson", unite);
+	public Poisson(String date) {
+		super("poisson", Unite.PIECE);
 		this.date = date;
 	}
 	
