@@ -15,7 +15,7 @@ public interface IEtal /*<P extends Produit>*/ {
 
 	void occuperEtal(Gaulois vendeur, Produit produit, int quantite);
 
-	boolean contientProduit(String produit);
+	boolean contientProduit(Produit produit);
 
 	int acheterProduit(int quantiteAcheter);
 
