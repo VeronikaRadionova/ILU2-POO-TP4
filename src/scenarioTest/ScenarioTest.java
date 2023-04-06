@@ -41,9 +41,6 @@ public class ScenarioTest {
 		
 		Etal[] marche = {etalSanglier1, etalSanglier2, etalPoisson};
 		
-		
-		
-		
 		int nbSVendu = 0;
 		int nbSCherche = 3;
 		int nbSEtal = 0;

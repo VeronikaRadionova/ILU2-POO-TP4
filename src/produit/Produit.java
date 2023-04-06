@@ -17,4 +17,6 @@ public abstract class Produit implements IProduit {
 	@Override
 	public abstract String description();
 	
+	@Override
+	public abstract double calculerPrix(int prix);
 }
