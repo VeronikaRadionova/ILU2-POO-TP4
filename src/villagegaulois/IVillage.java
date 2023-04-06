@@ -14,4 +14,5 @@ public interface IVillage /*<P extends Produit>*/{
 			int quantiteSouhaitee);
 	
 	public String afficherVillage();
+
 }
