@@ -17,8 +17,4 @@ public abstract class Produit implements IProduit {
 	@Override
 	public abstract String description();
 	
-	@Override
-	public int calculerPrix(int prix) { // eto voobshe tut doljno byt' ili net ???
-		
-	}
 }

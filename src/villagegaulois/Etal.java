@@ -1,8 +1,10 @@
 package villagegaulois;
 
 import personnages.Gaulois;
+
 import produit.IProduit;
-import produit.Produit;
+//import produit.Sanglier;
+//import produit.Produit;
 
 
 public class Etal <P extends IProduit> implements IEtal{
@@ -11,18 +13,23 @@ public class Etal <P extends IProduit> implements IEtal{
 	private int nbProduit;
 	private int prix;
 	
-	
+	@Override
 	public Gaulois getVendeur() {
 		return vendeur;
 	}
-
-	public void installerVendeur(Gaulois vendeur, P[] produit, int prix) {
-		this.vendeur = vendeur;
-		nbProduit = produit.length;
-		// P[] produts = new P[nbProduit]; ???
-		this.prix = prix;
-		// ono chto doljno vozvrashat' ??? texte ili prosto delo sdelat'
+	
+	@Override
+	public double donnerPrix() {
+		return prix;
 	}
+	
+	public void installerVendeur(Gaulois vendeur, P[] produits, int prix) {
+		this.vendeur = vendeur;
+		this.produits = produits;
+		this.nbProduit = produits.length;
+		this.prix = prix;
+	}
+	
 	
 	@Override
 	public int contientProduit(String produit, int quantiteSouhaitee) {
@@ -30,9 +37,9 @@ public class Etal <P extends IProduit> implements IEtal{
 		if (nbProduit != 0 && this.produits[0].getNom().equals(produit)) {
 			if (nbProduit >= quantiteSouhaitee) {
 				quantiteAVendre = quantiteSouhaitee;
-				} else {
-					quantiteAVendre = nbProduit;
-				}
+			} else {
+				quantiteAVendre = nbProduit;
+			}
 		}
 		return quantiteAVendre;
 	}
@@ -40,14 +47,14 @@ public class Etal <P extends IProduit> implements IEtal{
 	@Override
 	public double acheterProduit(int quantiteSouhaite) {
 		double prixPaye = 0;
-		for (int i = nbProduit - 1; i > nbProduit - quantiteSouhaite - 1 || i > 1; i--) {
-			prixPaye += produits[i].calculerPrix(prix); //chitat' i ispravlyat'
+		for (int i = nbProduit - 1; (i > nbProduit - quantiteSouhaite - 1) || (i > 1); i--) {
+			prixPaye += produits[i].calculerPrix(prix);
 		}
 		if (nbProduit >= quantiteSouhaite) {
 			nbProduit -= quantiteSouhaite;
-			} else {
-				nbProduit = 0;
-			}
+		} else {
+			nbProduit = 0;
+		}
 		return prixPaye;
 	}
 	
@@ -63,7 +70,8 @@ public class Etal <P extends IProduit> implements IEtal{
 		} else {
 			chaine.append(" n'a plus rien à vendre.");
 		}
-		chaine.append("\n"); return chaine.toString();
+		chaine.append("\n");
+		return chaine.toString();
 	}
 
 }
